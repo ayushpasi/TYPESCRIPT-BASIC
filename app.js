@@ -27,3 +27,11 @@ function add(a, b) {
     }
     return +a + +b;
 }
+const myPromise = new Promise((res, rej) => {
+    setTimeout(() => {
+        res("It worked");
+    }, 1000);
+});
+myPromise.then((res) => {
+    console.log(res);
+});

@@ -1,7 +1,7 @@
 const num1Element = document.getElementById("num1") as HTMLInputElement;
 const num2Element = document.getElementById("num2") as HTMLInputElement;
 const buttonElement = document.querySelector("button")!;
-const numResult: number[] = [];
+const numResult: Array<number> = [];
 const textResult: string[] = [];
 
 type stringOrNumber = number | string;
@@ -33,3 +33,13 @@ function add(a: stringOrNumber, b: stringOrNumber) {
   }
   return +a + +b;
 }
+
+const myPromise = new Promise<string>((res, rej) => {
+  setTimeout(() => {
+    res("It worked");
+  }, 1000);
+});
+
+myPromise.then((res) => {
+  console.log(res);
+});
