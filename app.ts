@@ -3,6 +3,13 @@ const num2Element = document.getElementById("num2") as HTMLInputElement;
 const buttonElement = document.querySelector("button")!;
 const numResult: number[] = [];
 const textResult: string[] = [];
+
+type stringOrNumber = number | string;
+type Result = { val: number; timeStamp: Date };
+interface resultObj {
+  val: number;
+  timeStamp: Date;
+}
 buttonElement.addEventListener("click", () => {
   const num1 = num1Element.value;
   const num2 = num2Element.value;
@@ -13,11 +20,11 @@ buttonElement.addEventListener("click", () => {
   textResult.push(stringResult as string);
   console.log(numResult, textResult);
 });
-function printResult(resObj: { val: number; timeStamp: Date }) {
+function printResult(resObj: resultObj) {
   console.log(resObj.val);
   console.log(resObj.timeStamp);
 }
-function add(a: number | string, b: number | string) {
+function add(a: stringOrNumber, b: stringOrNumber) {
   if (typeof a === "number" && typeof b === "number") {
     return a + b;
   }
